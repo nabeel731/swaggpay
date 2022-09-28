@@ -15,7 +15,7 @@ if ($user['paid'] == 1) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Verification</title>
+    <title>SwaggPay</title>
     <link rel="stylesheet" href="assets/css/custom/verification.css" />
 </head>
 
@@ -23,7 +23,7 @@ if ($user['paid'] == 1) {
     <main>
         <div class="verification">
             <div class="logo">
-                <h1>LOGO</h1>
+            <img src="assets/img/logo/logo.png"style="width:350px;height:auto;margin-bottom:-63px;">
             </div>
             <div class="desc">
                 <?php if (is_null($user['txt_id']) and $user['account_name'] == "easypaisa") { ?>

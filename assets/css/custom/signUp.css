@@ -5,7 +5,6 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-block: 4rem;
     background: white;
 }
 
@@ -45,6 +44,7 @@ main form option {
     border-radius: 0.3rem;
     box-shadow: inset 0px 1px 3px 0px rgb(0 0 0 / 8%);
     -webkit-box-shadow: inset 0px 1px 3px 0px rgb(0 0 0 / 8%);
+    outline: none;
 }
 
 main form button {

@@ -40,13 +40,13 @@ if ($user['paid'] == 0) {
                     <div class="login-wrap p-4 p-md-5">
                         <div class="row">
                             <?php foreach ($products as $product) { ?>
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <video poster="PreviewImage.jpeg" width="300" height="400" controls="controls">
+                                <div class="d-flex flex-column col-lg-6 col-md-6 col-12">
+                                    <video poster="PreviewImage.jpeg" class="w-100" width="300" height="400" controls="controls">
                                         <source src="<?= $product['image'] ?>" width="300" height="400" type="video/mp4" />
                                         Bummer, your browser does not support the video tag.
                                     </video>
 
-                                    <button class="btn btn-sm btn-primary float-center" onClick="CollectReward(<?= $product['id']; ?>)">Collect Reward</button>
+                                    <button class="my-4 py-3 btn btn-sm btn-primary float-center" onClick="CollectReward(<?= $product['id']; ?>)">Collect Reward</button>
 
 
                                 </div> <!-- col // -->

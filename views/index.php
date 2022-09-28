@@ -37,7 +37,7 @@ if ($user['paid'] == 0) {
 
             <marquee style=" background-color:#007da1;width:100%;color:white;">
                 <?= $setting['home_description'] ?></marquee>
-            <div class="row justify-content-center">
+            <div class="w-100 row justify-content-center">
                 <div class="col-md-8 col-lg-8 d-flex flex-column justify-content-center ">
                     <div class="login-wrap p-4 p-md-5">
                         <div class="row justify-content-center">

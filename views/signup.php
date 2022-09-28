@@ -7,8 +7,9 @@
     <title>SwaggPay</title>
     <link rel="stylesheet" href="assets/css/custom/signUp.css"/>
   </head>
+
   <body>
-    <main>
+    <main style="padding-block: 0rem;">
       <form action="register" method="post">
       <div class="logo">
         <img src="assets/img/logo/logo.png"style="width:350px;height:auto;margin-bottom:-63px;">

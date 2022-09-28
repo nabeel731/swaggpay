@@ -5,12 +5,10 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-block: 4rem;
     background: white;
 }
 
 main form {
-    min-width: 40%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -44,6 +42,11 @@ main form input {
     font-size: 1.1rem;
     font-weight: 400;
     border: none;
+    outline: none;
+}
+
+main form input:focus-visible {
+    border-color: red !important;
 }
 
 main form a {
@@ -63,5 +66,16 @@ main form button {
     color: #fff;
     text-transform: uppercase;
     background: #007da1;
-    background: #007da1;
+    outline: none;
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        background: white;
+    }
 }
