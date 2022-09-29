@@ -128,6 +128,7 @@ class UserController
 	public function secondmember($id)
 	{
 
+		echo $id;die;
 		$user = $this->db->getSingleRowIfMatch('users', 'id', $id);
 		if ($user['invitee_id']) {
 			$settings = $this->db->getSingleRowIfMatch('settings', 'id', 0, '>');
