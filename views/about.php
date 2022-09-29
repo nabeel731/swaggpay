@@ -87,7 +87,7 @@ if ($user['paid'] == 1) {
                 <?php } ?>
 
                 <?php if ($user['txtid_rejected'] == 1) { ?>
-                    <p style="color:red;font-size:20px;">We were not able verify the payment,Please Enter correct TrxId</p>
+                    <p style="color:red;font-size:20px;">We were not able verify the payment,Please Enter correct TId#</p>
                 <?php } ?>
             </div>
             <?php if ($user['txtid_rejected'] == 1  or  is_null($user['txt_id'])) { ?>
