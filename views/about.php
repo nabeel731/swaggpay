@@ -16,6 +16,7 @@ if ($user['paid'] == 1) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SwaggPay</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link rel="stylesheet" href="assets/css/custom/verification.css" />
 </head>
 
@@ -99,7 +100,7 @@ if ($user['paid'] == 1) {
                     </select>
                     <label for="accNo">Enter Account Number</label>
                     <input type="number" id="accNo" name="account_no" />
-                    <label for="trxID">Enter Trx ID</label>
+                    <label for="trxID">Enter TID#</label>
                     <input type="text" id="trxID" name="txt_id" />
                     <button type="submit">Submit</button>
                 </form>
@@ -109,5 +110,6 @@ if ($user['paid'] == 1) {
 </body>
 
 </html>
+
 <?php include_once 'layout/responses.php' ?>
 <?php include_once 'layout/scripts.php' ?>
