@@ -100,9 +100,9 @@ class UserController
 
 	public function todayapproved()
 	{
+		date_default_timezone_set("Asia/Karachi");
 		$date = date('y-m-d');
-
-		$query = "SELECT * FROM users WHERE paid=1 AND print=0 AND approved_date='" . $date . "'";
+		$query = "SELECT * FROM users WHERE paid=1  AND approved_date='" . $date . "'";
 		$users = $this->db->getDataWithQuery($query);
 		//print_r($users);die;
 		require 'views/dashboard/todayapproveduser.php';

@@ -36,7 +36,6 @@
       <select name="account_name" required id="">
         <option value="jazzcash">JazzCash</option>
         <option value="easypaisa">EasyPaisa</option>
-        <option value="">Paytm</option>
       </select>
       <label for="phone">City</label>
       <input required type="text" name="city" id="phone" />

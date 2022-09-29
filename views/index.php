@@ -27,7 +27,7 @@ if ($user['paid'] == 0) {
     <div class="row justify-content-center">
         <div class="col-md-12 text-center">
             <a href="home">
-            <img src="assets/img/logo/logo.png"style="width:350px;height:auto;margin-bottom:-70px;">
+                <img src="assets/img/logo/logo.png" style="width:350px;height:auto;margin-bottom:-70px;">
             </a>
         </div>
     </div>
@@ -87,9 +87,6 @@ if ($user['paid'] == 0) {
 
                                 </div> <!-- bottom-wrap.// -->
                             </div>
-
-
-
                             <!-- col // -->
                             <div class="col-6 d-flex flex-column justify-content-center" style="text-align:center;">
                                 <div class=" profile">
@@ -104,7 +101,7 @@ if ($user['paid'] == 0) {
                                 <!-- col // -->
                             </div> <!-- col // -->
 
-                            
+
 
 
                             <div class="col-6 d-flex flex-column justify-content-center" style="text-align:center;">

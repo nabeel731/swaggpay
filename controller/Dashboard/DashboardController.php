@@ -14,6 +14,7 @@ class DashboardController
 
 	public function index()
 	{
+		date_default_timezone_set("Asia/Karachi");
 		$date = date('y-m-d');
 		$query = " Select  count(*) as totaluser FROM users WHERE paid=1 and txtid_rejected=0 AND deleted=0";
 		$totaluser = $this->db->getDatawithQuery($query);
