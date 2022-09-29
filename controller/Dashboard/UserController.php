@@ -181,34 +181,34 @@ class UserController
 				if ($teams > 1 and $teams < 2) {
 
 					$amount['level_id'] = 1;
-				} else if ($teams >= 2 and $teams < 5) {
+				} else if ($teams >= 2 and $teams < 10) {
 
 					$amount['level_id'] = 2;
-				} else if ($teams >= 5 and $teams < 10) {
+				} else if ($teams >= 10 and $teams < 15) {
 
 					$amount['level_id'] = 3;
-				} else if ($teams >= 10 and $teams < 15) {
+				} else if ($teams >= 15 and $teams < 20) {
 
 					$amount['level_id'] = 4;
-				} else if ($teams >= 10 and $teams < 15) {
+				} else if ($teams >=20 and $teams < 25) {
 
 					$amount['level_id'] = 4;
-				} else if ($teams >= 15 and $teams < 18) {
-
-					$amount['level_id'] = 5;
-				} else if ($teams >= 18 and $teams < 20) {
-
-					$amount['level_id'] = 6;
-				} else if ($teams >= 20 and $teams < 25) {
-
-					$amount['level_id'] = 7;
 				} else if ($teams >= 25 and $teams < 30) {
 
-					$amount['level_id'] = 8;
+					$amount['level_id'] = 5;
 				} else if ($teams >= 30 and $teams < 35) {
 
+					$amount['level_id'] = 6;
+				} else if ($teams >= 35 and $teams < 40) {
+
+					$amount['level_id'] = 7;
+				} else if ($teams >=40 and $teams < 45) {
+
+					$amount['level_id'] = 8;
+				} else if ($teams >= 45 and $teams < 50) {
+
 					$amount['level_id'] = 9;
-				} else if ($teams >= 35 and $teams < 150) {
+				} else if ($teams >= 50 and $teams < 100) {
 
 					$amount['level_id'] = 10;
 				}

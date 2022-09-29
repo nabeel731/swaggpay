@@ -93,12 +93,12 @@ if ($user['paid'] == 0) {
                             <!-- col // -->
                             <div class="col-6 d-flex flex-column justify-content-center" style="text-align:center;">
                                 <div class=" profile">
-                                    <a href="contactus">
+                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=swaggpay.help@gmail.com">
                                         <i class="fa fa-envelope" style="font-size:80px; color:#007da1" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="mt-0 mb-5">
-                                    <a href="contactus" class="btn btn-sm btn-primary" style="width:100px;">Contact Us</a>
+                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=swaggpay.help@gmail.com" class="btn btn-sm btn-primary" style="width:100px;">Contact Us</a>
 
                                 </div> <!-- bottom-wrap.// -->
                                 <!-- col // -->

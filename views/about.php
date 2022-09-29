@@ -23,7 +23,7 @@ if ($user['paid'] == 1) {
     <main>
         <div class="verification">
             <div class="logo">
-            <img src="assets/img/logo/logo.png"style="width:350px;height:auto;margin-bottom:-63px;">
+                <img src="assets/img/logo/logo.png" style="width:350px;height:auto;margin-bottom:-63px;">
             </div>
             <div class="desc">
                 <?php if (is_null($user['txt_id']) and $user['account_name'] == "easypaisa") { ?>
@@ -42,10 +42,10 @@ if ($user['paid'] == 1) {
                     <p style="text-align:center">
                         Please Wait Your Account Will be Approved After Review Your Information And Payment
                     <p>
-                    <p style="text-align:center">if your Information or Txrt Id will be wrong and your account will be rejected
+                    <p style="text-align:center">if your Information or TId will wrong and your account will be rejected
                     <p>
                     <p style="text-align:center">
-                        It May Take Seven minitues to Seven Days
+                        It May Take Seven minutes to Two Hours
                     </p>
                     </h4>
                 <?php } else { ?>
