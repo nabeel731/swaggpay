@@ -29,7 +29,7 @@ class Email
 	   else 
 		   die("Error!  Recheck if table reset_tokens exists in db or not (and also the attributes needed are id,email,token,expiry)");
 	   
-	   return $this->sendEmail($email,'Suzibit Password Reset',$body);
+	   return $this->sendEmail($email,'SwaggPay Password Reset',$body);
 	}
 	
 	public function sendContactusEmail($name,$email,$message){
