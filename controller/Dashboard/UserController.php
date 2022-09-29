@@ -118,11 +118,36 @@ class UserController
 			echo "0";
 	}
 
-	public function returnPercentageAmount($registerfees)
+	public function returnPercentageAmount($registerfees, $per)
 	{
-		return 16 * $registerfees / 100;
+		return $per * $registerfees / 100;
 	}
 
+
+
+	public function secondmember($id)
+	{
+
+		$user = $this->db->getSingleRowIfMatch('users', 'id', $id);
+		if ($user['invitee_id']) {
+			$settings = $this->db->getSingleRowIfMatch('settings', 'id', 0, '>');
+			$amount['current_amount'] = $user['current_amount'] + $this->returnPercentageAmount($settings['register_fees'], 5);
+			$this->db->updateRow('users', $amount, 'id', $user['invitee_id']);
+			$this->threemember($user['invitee_id']);
+		}
+	}
+
+
+	public function threemember($id)
+	{
+
+		$user = $this->db->getSingleRowIfMatch('users', 'id', $id);
+		if ($user['invitee_id']) {
+			$settings = $this->db->getSingleRowIfMatch('settings', 'id', 0, '>');
+			$amount['current_amount'] = $user['current_amount'] + $this->returnPercentageAmount($settings['register_fees'], 3);
+			$this->db->updateRow('users', $amount, 'id', $user['invitee_id']);
+		}
+	}
 
 
 	public function approveMember()
@@ -141,7 +166,8 @@ class UserController
 			$userdata = $this->db->getDataWithQuery($query);
 			if (!empty($userdata[0]['invitee_id'])) {
 				$inviteeuserdata = $this->db->getSingleRowIfMatch('users', 'id', $userdata[0]['invitee_id']);
-				$amount['current_amount'] = $inviteeuserdata['current_amount'] + $this->returnPercentageAmount($settings['register_fees']);
+				$amount['current_amount'] = $inviteeuserdata['current_amount'] + $this->returnPercentageAmount($settings['register_fees'], 16);
+				$this->secondmember($userdata[0]['invitee_id']);
 				$amount['last_date'] = date("Y-m-d", strtotime("$dt +10 day"));
 				$this->db->updateRow('users', $amount, 'id', $userdata[0]['invitee_id']);
 			}
@@ -149,18 +175,39 @@ class UserController
 
 			if (!empty($userdata[0]['invitee_id'])) {
 				$teams = $this->checkUserTeam($userdata[0]['invitee_id']);
-				if ($teams > 4 and $teams < 12) {
+				if ($teams > 1 and $teams < 2) {
 
 					$amount['level_id'] = 1;
-				} else if ($teams > 11 and $teams < 27) {
+				} else if ($teams >= 2 and $teams < 5) {
 
 					$amount['level_id'] = 2;
-				} else if ($teams > 26 and $teams < 40) {
+				} else if ($teams >= 5 and $teams < 10) {
 
 					$amount['level_id'] = 3;
-				} else if ($teams > 40) {
+				} else if ($teams >= 10 and $teams < 15) {
 
 					$amount['level_id'] = 4;
+				} else if ($teams >= 10 and $teams < 15) {
+
+					$amount['level_id'] = 4;
+				} else if ($teams >= 15 and $teams < 18) {
+
+					$amount['level_id'] = 5;
+				} else if ($teams >= 18 and $teams < 20) {
+
+					$amount['level_id'] = 6;
+				} else if ($teams >= 20 and $teams < 25) {
+
+					$amount['level_id'] = 7;
+				} else if ($teams >= 25 and $teams < 30) {
+
+					$amount['level_id'] = 8;
+				} else if ($teams >= 30 and $teams < 35) {
+
+					$amount['level_id'] = 9;
+				} else if ($teams >= 35 and $teams < 150) {
+
+					$amount['level_id'] = 10;
 				}
 
 				$this->db->updateRow('users', $amount, 'id', $userdata[0]['invitee_id']);
