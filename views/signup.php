@@ -39,6 +39,12 @@
         </select>
         <label for="phone">City</label>
         <input  required type="text" name="city" id="phone" />
+        <?php if (isset($invitee['name'])) { ?>
+				<label style="Color:red">Referral Name</label>
+				<input type="hidden" class="form-control" minlength="1" value="<?= $invitee['id'] ?>" name="invitee_id">
+				
+					<input type="text" readonly value="<?= $invitee['name'] ?>" placeholder="Refral Name" required class="">
+			<?php } ?>
         <button type="submit">Sign Up</button>
       </form>
     </main>
