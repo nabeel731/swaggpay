@@ -31,7 +31,6 @@ class ProductController
 			redirect('shopProduct?error=FIELDS_REQUIRED');
 
 		$_POST['image'] = $this->helper->uploadFile($_FILES['image'], 'uploads/products');
-        echo $_POST['image'];die;
 		$user = $this->db->insertRow('products', $_POST);
 
 		if ($user)
