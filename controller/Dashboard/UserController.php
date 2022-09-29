@@ -131,9 +131,11 @@ class UserController
 		echo $id;die;
 		$user = $this->db->getSingleRowIfMatch('users', 'id', $id);
 		if ($user['invitee_id']) {
+			$userinvitee = $this->db->getSingleRowIfMatch('users', 'id',$user['invitee_id']);
+			print_r($userinvitee);die;
 			$settings = $this->db->getSingleRowIfMatch('settings', 'id', 0, '>');
-			$amount['current_amount'] = $user['current_amount'] + $this->returnPercentageAmount($settings['register_fees'], 5);
-			$this->db->updateRow('users', $amount, 'id', $user['invitee_id']);
+			$amount['current_amount'] = $userinvitee['current_amount'] + $this->returnPercentageAmount($settings['register_fees'], 5);
+			$this->db->updateRow('users', $amount, 'id', $userinvitee['id']);
 			$this->threemember($user['invitee_id']);
 		}
 	}
