@@ -126,5 +126,6 @@
     <script src="../assets/admin/plugins/select2/js/select2.full.min.js"></script>
   </body>
 
+  
   </html>
   <!-- /.content-wrapper -->
