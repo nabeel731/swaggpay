@@ -62,8 +62,11 @@
             placeholder="Type Your Password"
           />
         </span>
-        <a href="" st>Create Account?</a>
-        <a href="forgetpassword">Forget Password?</a>
+        <div>
+
+          <a href="signup" st>Create Account?</a>
+          <a href="forgetpassword">Forget Password?</a>
+        </div>
         <button type="submit">Login</button>
       </form>
     </main>

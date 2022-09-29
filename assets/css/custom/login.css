@@ -69,6 +69,13 @@ main form button {
     outline: none;
 }
 
+main form div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 @media screen and (max-width: 480px) {
     main {
         width: 100%;
