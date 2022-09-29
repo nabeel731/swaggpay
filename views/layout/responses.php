@@ -43,9 +43,9 @@ if(isset($_GET['error']))
 	else if($error=='Deleted_Account')
 		printMessage('Account Deleted','Your Account Has Been Deletd,Please Contact to Admin!');
 	else if(strtolower($error)=='second_payment')
-		printMessage('error','Oooops Second Withdwar Limt is 5000');
+		printMessage('error','Oooops Second Withdwar Limt is 1500');
 	else if(strtolower($error)=='first_payment')
-		printMessage('error','Oooops First Withdwar Limt is 2000');
+		printMessage('error','Oooops First Withdwar Limt is 500');
 
 	
 	else if($error=='EMAIL_NOT_FOUND')
