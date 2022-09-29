@@ -48,19 +48,22 @@ class PaymentController extends Controller
 		  $query="SELECT * FROM payments_request WHERE payment_approved=0 AND  user_id=$id";
 		 $firstpaymentscheck=$this->db->getDataWithQuery($query);
 		 
-		 
+		
 		 if($_POST['amount']<499 and empty($firstpaymentscheck))
 		 {
+			
 			echo "<script>location.href='wallet?error=First_PAYMENT'</script>";
 			die;
 		 }
+
+		
 
 
 		 
 		 $query="SELECT * FROM payments_request WHERE payment_approved=1 AND  user_id=$id";
 		 $secondpaymentscheck=$this->db->getDataWithQuery($query);
 		 $two=count($secondpaymentscheck);
-		 if($_POST['amount']<1499 and  $two<2)
+		 if($_POST['amount']<1499 and  ($two<2 and $two>0))
 		 {
 			echo "<script>location.href='wallet?error=Second_PAYMENT'</script>";
 			die;

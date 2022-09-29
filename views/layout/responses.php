@@ -45,7 +45,7 @@ if(isset($_GET['error']))
 	else if(strtolower($error)=='second_payment')
 		printMessage('error','Oooops Second Withdwar Limt is 1500');
 	else if(strtolower($error)=='first_payment')
-		printMessage('error','Oooops First Withdwar Limt is 500');
+		printMessage('error','Oooops  Withdwar Limt is 500');
 
 	
 	else if($error=='EMAIL_NOT_FOUND')
