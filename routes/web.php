@@ -28,7 +28,7 @@ if(in_array($_GET['route'],$onlyAllowedAfterLogin))
 }
 // Controllers
 require_once 'controller/Controller.php';
-if(in_array($_GET['route'],['register','forgetpassword','loginSubmit','logout','resetPassword','invite']))
+if(in_array($_GET['route'],['register','forgetpassword','resetPassword','reset-password','loginSubmit','logout','resetPassword','invite']))
 {
 	require_once 'controller/AuthController.php';
     $auth=new AuthController();

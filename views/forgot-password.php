@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include_once 'layout/head.php'?>
+  <head>
+    <title>SwaggPay</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/custom/login.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+        <!-- <style>
+          main{
+            padding-block: 0rem;
+          }
+          input{
+            outline: none;
+          }
+          main form input:focus span{
+            background-color: red;
+          }
+          main form{
+            min-width: auto;
+          }
+          @media screen and (max-width: 480px){
+            main{
+              align-items: flex-start !important;
+            }
+          }
+        </style> -->
+  </head>
 <body>
-    <section class="ftco-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                 <div class="col-md-6 text-center mb-5">
-                    <img src="assets/img/logo/logo.jpg"style="width:300px;height:90px;">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-5">
-                    <div class="login-wrap p-4 p-md-5">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="fa fa-user-o"></span>
-                        </div>
+    <main>
+      <form action="forgetpassword"  method="POST">
+        <div class="logo">
+        <img src="assets/img/logo/logo.png"style="width:350px;height:auto;margin-bottom:-63px;">
+        </div>
+        <label for="email">Email</label>
+        <span>
+          <i class="fa-regular fa-envelope"></i>
+          <input
+            type="email"
+            name="email"
+            id="email" required
+            placeholder="Type Your Email"
+          />
+        </span>
+        <button type="submit">Send Eamil</button>
+      </form>
+    </main>
 
-                    <form action="forgetpassword" class="login-form" method="POST">
-                        <div class="form-group">
-                             <input type="text" class="form-control rounded-left" placeholder="Email" name="email" required>
-                        </div>
-                        <div class="form-group d-md-flex">
-                        <div class="">
-                            <span>Already have an account?</span><a href="login">Back To Login</a>
-                        </div>
-                        </div>
-                        <div class="form-group d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary rounded  p-3 px-5">Continue</button>
-                        </div>
-                    </form>
-                    </div>
-                </div>
-            </div>
-</div>
-</section>
 <?php include_once 'layout/responses.php'?>
+<?php include_once 'layout/scripts.php'?>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/custom/login.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -61,12 +62,13 @@
             placeholder="Type Your Password"
           />
         </span>
-
-        <a href="">Forget Password?</a>
+        <a href="" st>Create Account?</a>
+        <a href="forgetpassword">Forget Password?</a>
         <button type="submit">Login</button>
       </form>
     </main>
 
 <?php include_once 'layout/responses.php'?>
+<?php include_once 'layout/scripts.php'?>
 </body>
 </html>
