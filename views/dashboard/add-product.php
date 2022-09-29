@@ -124,49 +124,6 @@
     <!-- Bootstrap4 Duallistbox -->
     <!-- Select2 -->
     <script src="../assets/admin/plugins/select2/js/select2.full.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        bsCustomFileInput.init();
-
-        $('.textarea').summernote();
-      });
-
-      //Initialize Select2 Elements
-      $('.select2').select2();
-
-      //Initialize Select2 Elements
-      $('.select2bs4').select2({
-        theme: 'bootstrap4'
-      });
-
-      //Bootstrap Duallistbox
-      $('.duallistbox').bootstrapDualListbox();
-
-      let categories = <?= json_encode($categories) ?>;
-      console.log(categories);
-
-      function changeSubCategories(select) {
-
-        categories.forEach(category => {
-          if (category.id == select.value) {
-            $('#select_subcategory').empty();
-            category.sub_categories.forEach(sub_category => {
-              $('#select_subcategory').append('<option value="' + sub_category.id + '" >' + sub_category.name + '</option>');
-            });
-          }
-
-        });
-
-      }
-
-      var values = "<?= $product['weights'] ?>";
-      $.each(values.split(","), function(i, e) {
-        $("#weights option[value='" + e + "']").prop("selected", true);
-      });
-    </script>
-
-
-
   </body>
 
   </html>
