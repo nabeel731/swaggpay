@@ -190,7 +190,7 @@ class UserController extends Controller
 		$user = $this->db->getSingleRowIfMatch('users', 'id', $_SESSION['user_id']);
 		$query = "SELECT * FROM dailytask WHERE task_id=$product_id AND udate='$todaydate'";
 		$totalcollect = $this->db->getDataWithQuery($query);
-
+        print_r($totalcollect);die;
 		if ($totalcollect) {
 			echo json_encode(['status' => 200, 'message' => 'already collect', 'data' => '']);
 			die;
