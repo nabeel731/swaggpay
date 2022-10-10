@@ -61,7 +61,7 @@ class PaymentController extends Controller
 		}
 
 
-		if ($_POST['amount'] < 499 and empty($firstpaymentscheck)) {
+		if ($_POST['amount'] < 999 and empty($firstpaymentscheck)) {
 
 			echo "<script>location.href='wallet?error=First_PAYMENT'</script>";
 			die;
