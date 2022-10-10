@@ -36,6 +36,8 @@ if(isset($_GET['error']))
 		printMessage('PAYMENT REQUEST ERROR','Please Enter Valid Amount!');
 	else if($error=='PAYMENT REQUEST ALREADY')
 		printMessage('PAYMENT REQUEST Pending','Your Payments Request Already Pending!');
+		else if($error=='LIMIT1')
+		printMessage('PAYMENT REQUEST Limit','Please Join 3 Member For WithDraw !');
 	
 	else if($error=='Blocked_Account')
 		printMessage('Blocked','Please Contact to Admin,Your Account Has Been Blocked!');
