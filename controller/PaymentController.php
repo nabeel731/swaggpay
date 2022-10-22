@@ -66,11 +66,7 @@ class PaymentController extends Controller
 			echo "<script>location.href='wallet?error=First_PAYMENT'</script>";
 			die;
 		}
-
-
-
-
-
+		
 		$query = "SELECT * FROM payments_request WHERE payment_approved=1 AND  user_id=$id";
 		$secondpaymentscheck = $this->db->getDataWithQuery($query);
 		$two = count($secondpaymentscheck);
