@@ -181,7 +181,7 @@ class UserController
 				if ($teams > 1 and $teams < 2) {
 
 					$amount['level_id'] = 1;
-				} else if ($teams >= 4 and $teams < 10) {
+				} else if ($teams >= 5 and $teams < 10) {
 
 					$amount['level_id'] = 2;
 				} else if ($teams >= 10 and $teams < 15) {

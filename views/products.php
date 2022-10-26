@@ -29,7 +29,7 @@ if ($user['paid'] == 0) {
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-2 mt-2">
                     <a href="home">
-                    <img src="assets/img/logo/logo.png"style="width:350px;height:auto;margin-bottom:-63px;">
+                        <img src="assets/img/logo/logo.png" style="width:350px;height:auto;margin-bottom:-63px;">
                     </a>
 
                 </div>
@@ -40,13 +40,14 @@ if ($user['paid'] == 0) {
                     <div class="login-wrap p-4 p-md-5">
                         <div class="row">
                             <?php foreach ($products as $product) { ?>
-                                <div class="d-flex flex-column col-lg-6 col-md-6 col-12">
-                                    <video poster="PreviewImage.jpeg" class="w-100" width="300" height="400" controls="controls">
-                                        <source src="<?= $product['image'] ?>" width="300" height="400" type="video/mp4" />
-                                        Bummer, your browser does not support the video tag.
-                                    </video>
+                                <div class="d-flex flex-column col-lg-6 mb-5 col-md-6 col-12">
+                                    <div onClick="CollectReward(<?= $product['id'] ?>)">
 
-                                    <button class="my-4 py-3 btn btn-sm btn-primary float-center" onClick="CollectReward(<?= $product['id']; ?>)">Collect Reward</button>
+                                        <iframe width="350" height="320" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                                        </iframe>
+                                    </div>
+
+                                    <!-- <button class="my-4 py-3 btn btn-sm btn-primary float-center" onClick="CollectReward()">Collect Reward</button> -->
 
 
                                 </div> <!-- col // -->
@@ -62,7 +63,7 @@ if ($user['paid'] == 0) {
     <?php include_once 'layout/responses.php' ?>
     <script>
         function CollectReward(id) {
-
+            alert();
             makeAjaxCall('CollectReward?id=' + id).then(res => {
                 console.log(res);
                 if (res['message'] == "already collect") {
@@ -75,21 +76,19 @@ if ($user['paid'] == 0) {
                         location.reload()
                     }, 3000)
 
-                } 
-                 else if (res['message'] == "successful") {
+                } else if (res['message'] == "successful") {
                     swal.fire({
                         title: "Done",
                         text: "Your Reward Have Been Collecetd",
                         icon: "success",
                     });
-                }
-                 else if (res['message'] == "20 days already") {
+                } else if (res['message'] == "20 days already") {
                     swal.fire({
                         title: "Success",
                         text: "Now Add One More Member In Your Team For Collect More Rewad",
                         icon: "error",
                     });
-                } 
+                }
 
             });
         }
