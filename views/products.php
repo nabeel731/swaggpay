@@ -47,7 +47,7 @@ if ($user['paid'] == 0) {
                                         </iframe>
                                     </div>
 
-                                    <!-- <button class="my-4 py-3 btn btn-sm btn-primary float-center" onClick="CollectReward()">Collect Reward</button> -->
+                                    <button class="my-4 py-3 btn btn-sm btn-primary float-center" onClick="CollectReward(<?= $product['id'] ?>)">Collect Reward</button>
 
 
                                 </div> <!-- col // -->
@@ -63,7 +63,7 @@ if ($user['paid'] == 0) {
     <?php include_once 'layout/responses.php' ?>
     <script>
         function CollectReward(id) {
-            alert();
+           
             makeAjaxCall('CollectReward?id=' + id).then(res => {
                 console.log(res);
                 if (res['message'] == "already collect") {
