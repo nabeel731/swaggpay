@@ -178,13 +178,13 @@ class UserController
 
 			if (!empty($userdata[0]['invitee_id'])) {
 				$teams = $this->checkUserTeam($userdata[0]['invitee_id']);
-				if ($teams > 1 and $teams < 2) {
+				if ($teams > 1 and $teams < 5) {
 
 					$amount['level_id'] = 1;
-				} else if ($teams >= 5 and $teams < 10) {
+				} else if ($teams >= 5 and $teams < 12) {
 
 					$amount['level_id'] = 2;
-				} else if ($teams >= 10 and $teams < 15) {
+				} else if ($teams >= 12 and $teams < 15) {
 
 					$amount['level_id'] = 3;
 				} else if ($teams >= 15 and $teams < 20) {
