@@ -41,11 +41,12 @@ class PaymentController extends Controller
 		$this->helper->validateInput('POST', ['amount']);
 		$id = $_SESSION['user_id'];
 		$current_amount = $this->db->getSingleRowIfMatch("users", 'id', $_SESSION['user_id']);
-
+		
 		if ($_POST['amount'] > $current_amount['current_amount']) {
 			echo "<script>location.href='wallet?error=PAYMENT REQUEST ERROR'</script>";
 			die;
 		}
+		
 
 		$query = "SELECT * FROM payments_request WHERE payment_approved=0 AND  user_id=$id";
 		$firstpaymentscheck = $this->db->getDataWithQuery($query);
@@ -59,18 +60,21 @@ class PaymentController extends Controller
 			echo "<script>location.href='wallet?error=LIMIT1'</script>";
 			die;
 		}
+		
 
 
-		if ($_POST['amount'] < 500 and empty($firstpaymentscheck)) {
+		if ($_POST['amount'] !=500 and empty($firstpaymentscheck)) {
 
 			echo "<script>location.href='wallet?error=First_PAYMENT'</script>";
 			die;
 		}
+		
+		
 
 		$query = "SELECT * FROM payments_request WHERE payment_approved=1 AND  user_id=$id";
 		$secondpaymentscheck = $this->db->getDataWithQuery($query);
 		$two = count($secondpaymentscheck);
-		if ($_POST['amount'] < 1000 and  ($two < 2 and $two > 0) and $totalteam[0]['total_team']<6) {
+		if ($_POST['amount'] !=1500 and  ($two < 2 and $two > 0) and $totalteam[0]['total_team']<6) {
 			echo "<script>location.href='wallet?error=Second_PAYMENT'</script>";
 			die;
 		}

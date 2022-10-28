@@ -41,14 +41,10 @@ if ($user['paid'] == 0) {
                         <div class="row">
                             <?php foreach ($products as $product) { ?>
                                 <div class="d-flex flex-column col-lg-6 mb-5 col-md-6 col-12">
-                                    <div onClick="CollectReward(<?= $product['id'] ?>)">
-
-                                        <iframe width="350" height="320" src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                                        </iframe>
+                                    <div id='vidWrapper'>
+                                        <iframe id="video-id-first" src="https://www.youtube.com/embed/nNlEiuqiKAk?enablejsapi=1&amp;origin=http%3A%2F%2F3.7.232.244" gesture="media" allow="encrypted-media" allowfullscreen="" data-gtm-yt-inspected-53610233_3="true" width="320" height="320" frameborder="0"></iframe>
                                     </div>
-
-                                    <button class="my-4 py-3 btn btn-sm btn-primary float-center" onClick="CollectReward(<?= $product['id'] ?>)">Collect Reward</button>
-
+                                    <button class="my-4 py-3 btn btn-sm btn-primary float-center text-center" style="width:320px;"  onClick="CollectReward(<?=$product['id']?>)">Collect Reward</button>
 
                                 </div> <!-- col // -->
 
@@ -63,7 +59,7 @@ if ($user['paid'] == 0) {
     <?php include_once 'layout/responses.php' ?>
     <script>
         function CollectReward(id) {
-           
+
             makeAjaxCall('CollectReward?id=' + id).then(res => {
                 console.log(res);
                 if (res['message'] == "already collect") {
@@ -91,6 +87,44 @@ if ($user['paid'] == 0) {
                 }
 
             });
+        }
+
+        // var tag = document.createElement('script');
+        // tag.src = "https://www.youtube.com/iframe_api";
+        // var firstScriptTag = document.getElementsByTagName('script')[0];
+        // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        // var player;
+        // var width = document.getElementById("video-id-first").getAttribute("width");
+        // var height = document.getElementById("video-id-first").getAttribute("height");
+        // var src = document.getElementById("video-id-first").getAttribute("src");
+        // //splitting to get the videoId from src.
+        // var partsArr = src.split("/");
+        // var videoSource = partsArr[partsArr.length - 1].split("?");
+        // var videoId = videoSource[videoSource.length - 2];
+
+        // function onYouTubeIframeAPIReady() {
+        //     player = new YT.Player('vidWrapper', {
+        //         height: height,
+        //         width: width,
+        //         videoId: videoId,
+        //         events: {
+        //             'onStateChange': function(event) {
+
+        //                 if (event.data == YT.PlayerState.PLAYING) {
+        //                     console.log(event)
+        //                     startVideo();
+        //                 }
+        //                 if (event.data == YT.PlayerState.PAUSED) {
+        //                     stopVideo();
+        //                 }
+        //             }
+        //         }
+        //     });
+        // }
+
+        function startVideo() {
+            //write your functionality here.
+            alert('Video Started');
         }
     </script>
 </body>
