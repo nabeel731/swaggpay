@@ -44,7 +44,8 @@ if ($user['paid'] == 0) {
                             <div class="col-6 d-flex flex-column justify-content-center" style="text-align:center;">
                                 <div class=" profile">
                                     <a href="profile">
-                                        <i class="fa fa-user" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
+                                        <i class="fa fa-user" style="font-size:80px;color:#007da1"
+                                            aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="mt-1 mb-5">
@@ -56,18 +57,21 @@ if ($user['paid'] == 0) {
                             <div class="col-6 d-flex flex-column justify-content-center" style="text-align:center;">
                                 <div class=" profile">
                                     <a href="products">
-                                        <i class="fa fa-tasks" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
+                                        <i class="fa fa-tasks" style="font-size:80px;color:#007da1"
+                                            aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="mt-0 mb-5">
-                                    <a href="products" class="btn btn-sm btn-primary" style="width:100px;">Daily Task</a>
+                                    <a href="products" class="btn btn-sm btn-primary" style="width:100px;">Daily
+                                        Task</a>
 
                                 </div> <!-- bottom-wrap.// -->
                             </div> <!-- col // -->
                             <div class="col-6 d-flex flex-column justify-content-center" style="text-align:center;">
                                 <div class=" profile">
                                     <a href="wallet">
-                                        <i class="fa fa-wallet" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
+                                        <i class="fa fa-wallet" style="font-size:80px;color:#007da1"
+                                            aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="mt-0 mb-5">
@@ -79,7 +83,8 @@ if ($user['paid'] == 0) {
                             <div class="col-6 d-flex flex-column justify-content-center" style="text-align:center;">
                                 <div class=" profile">
                                     <a href="team">
-                                        <i class="fa fa-group" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
+                                        <i class="fa fa-group" style="font-size:80px;color:#007da1"
+                                            aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="mt-0 mb-5">
@@ -90,12 +95,14 @@ if ($user['paid'] == 0) {
                             <!-- col // -->
                             <div class="col-6 d-flex flex-column justify-content-center" style="text-align:center;">
                                 <div class=" profile">
-                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=swaggpay.help@gmail.com">
-                                        <i class="fa fa-envelope" style="font-size:80px; color:#007da1" aria-hidden="true"></i>
+                                    <a>
+                                        <i onclick="showmessagegame()" class="fa fa-gamepad"
+                                            style="font-size:80px; color:#007da1" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="mt-0 mb-5">
-                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=swaggpay.help@gmail.com" class="btn btn-sm btn-primary" style="width:100px;">Contact Us</a>
+                                    <a onclick="showmessagegame()" class="btn btn-sm btn-primary"
+                                        style="width:100px;color:white">Play Game</a>
 
                                 </div> <!-- bottom-wrap.// -->
                                 <!-- col // -->
@@ -107,11 +114,13 @@ if ($user['paid'] == 0) {
                             <div class="col-6 d-flex flex-column justify-content-center" style="text-align:center;">
                                 <div class=" profile">
                                     <a href="logout">
-                                        <i class="fa fa-sign-out-alt" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
+                                        <i class="fa fa-sign-out-alt" style="font-size:80px;color:#007da1"
+                                            aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="mt-1">
-                                    <a href="logout" class="btn btn-sm btn-primary" style="width:100px;margin-bottom:30px;">Logout</a>
+                                    <a href="logout" class="btn btn-sm btn-primary"
+                                        style="width:100px;margin-bottom:30px;">Logout</a>
 
                                 </div> <!-- bottom-wrap.// -->
                             </div>
@@ -127,6 +136,18 @@ if ($user['paid'] == 0) {
             <?php include_once 'layout/footer.php' ?>
     </section>
     <?php include_once 'layout/scripts.php' ?>
+
+    <script>
+        function showmessagegame()
+        {
+            Swal.fire({
+		  icon: "error",
+		  title: 'Level 4',
+		  text: "You Can Play Game On Level 4 And Eean Money"
+		})
+
+        }
+    </script>
 
 </body>
 
