@@ -42,7 +42,7 @@ if ($user['paid'] == 0) {
                             <?php foreach ($products as $product) { ?>
                                 <div class="d-flex flex-column col-lg-6 mb-5 col-md-6 col-12">
                                     <div id='vidWrapper'>
-                                        <iframe id="video-id-first" src="https://www.youtube.com/embed/nNlEiuqiKAk?enablejsapi=1&amp;origin=http%3A%2F%2F3.7.232.244" gesture="media" allow="encrypted-media" allowfullscreen="" data-gtm-yt-inspected-53610233_3="true" width="320" height="320" frameborder="0"></iframe>
+                                        <iframe id="video-id-first" src="<?=$product['image']?>?enablejsapi=1&amp;origin=http%3A%2F%2F3.7.232.244" gesture="media" allow="encrypted-media" allowfullscreen="" data-gtm-yt-inspected-53610233_3="true" width="320" height="320" frameborder="0"></iframe>
                                     </div>
                                     <button class="my-4 py-3 btn btn-sm btn-primary float-center text-center" style="width:320px;"  onClick="CollectReward(<?=$product['id']?>)">Collect Reward</button>
 
