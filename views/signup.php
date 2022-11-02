@@ -35,7 +35,7 @@
       <input type="password" name="confirm_password" id="confirm_password" />
       <label for="account">Select Account</label>
       <select name="account_name" required id="">
-        <!-- <option value="jazzcash">JazzCash</option> -->
+        <option value="jazzcash">JazzCash</option>
         <option value="easypaisa">EasyPaisa</option>
       </select>
       <label for="phone">City</label>

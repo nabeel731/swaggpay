@@ -94,7 +94,7 @@ if ($user['paid'] == 1) {
                 <form action="updateTxtid" method="post">
                     <label for="account">Select Account</label>
                     <select name="account_type" id="">
-                        <!-- <option value="jazzcash">JazzCash</option> -->
+                        <option value="jazzcash">JazzCash</option>
                         <option value="easypaisa">EasyPaisa</option>
                         <option value="">Paytm</option>
                     </select>
