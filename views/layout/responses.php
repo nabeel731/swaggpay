@@ -46,7 +46,7 @@ if (isset($_GET['error'])) {
 	else if (strtolower($error) == 'second_payment')
 		printMessage('error', 'Oooops  You Can  Only Withdraw  1500 Rs');
 	else if (strtolower($error) == 'first_payment')
-		printMessage('error', 'Oooops  You Can  Withdraw Only 500 Rs For First Time');
+		printMessage('error', 'Oooops  You Can  Withdraw Only 700 Rs For First Time');
 
 
 	else if ($error == 'EMAIL_NOT_FOUND')

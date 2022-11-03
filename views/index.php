@@ -142,8 +142,8 @@ if ($user['paid'] == 0) {
         {
             Swal.fire({
 		  icon: "error",
-		  title: 'Level 4',
-		  text: "You Can Play Game On Level 4 And Earn Money"
+		  title: 'Level 6',
+		  text: "You Can Play Game On Level 6 And Earn Money"
 		})
 
         }

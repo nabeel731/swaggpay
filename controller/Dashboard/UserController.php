@@ -190,13 +190,13 @@ class UserController
 				} else if ($teams >= 15 and $teams < 20) {
 
 					$amount['level_id'] = 4;
-				} else if ($teams >=20 and $teams < 25) {
+				} else if ($teams >=40 and $teams < 50) {
 
 					$amount['level_id'] = 4;
-				} else if ($teams >= 25 and $teams < 30) {
+				} else if ($teams >= 50 and $teams < 60) {
 
 					$amount['level_id'] = 5;
-				} else if ($teams >= 30 and $teams < 35) {
+				} else if ($teams >= 60 and $teams < 65) {
 
 					$amount['level_id'] = 6;
 				} else if ($teams >= 35 and $teams < 40) {
