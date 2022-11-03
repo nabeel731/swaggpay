@@ -46,6 +46,20 @@ class PaymentController extends Controller
 			echo "<script>location.href='wallet?error=PAYMENT REQUEST ERROR'</script>";
 			die;
 		}
+		$date=date('Y-m-d');
+		$query = "SELECT * FROM payments_request WHERE payment_approved=1 AND  user_id=$id and cast(updated_at as date) ='" . $date . "'";
+		$alreadypayment = $this->db->getDataWithQuery($query);
+
+	
+
+		if ($alreadypayment) {
+			echo "<script>location.href='wallet?error=payment_today'</script>";
+			die;
+		}
+
+		
+
+
 		
 
 		$query = "SELECT * FROM payments_request WHERE payment_approved=0 AND  user_id=$id";

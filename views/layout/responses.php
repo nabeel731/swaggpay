@@ -48,6 +48,9 @@ if (isset($_GET['error'])) {
 	else if (strtolower($error) == 'first_payment')
 		printMessage('error', 'Oooops  You Can  Withdraw Only 700 Rs For First Time');
 
+		else if (strtolower($error) == 'payment_today')
+		printMessage('error', 'Oooops Today Withdrawal Limit Is Over');
+
 
 	else if ($error == 'EMAIL_NOT_FOUND')
 		printMessage('Email Not Found', 'Your Email Is Not Found');
