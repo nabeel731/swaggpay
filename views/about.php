@@ -93,10 +93,10 @@ if ($user['paid'] == 1) {
             <?php if ($user['txtid_rejected'] == 1  or  is_null($user['txt_id'])) { ?>
                 <form action="updateTxtid" method="post">
                     <label for="account">Select Account</label>
-                    <select name="account_type" id="">
-                        <option value="jazzcash">JazzCash</option>
-                        <option value="easypaisa">EasyPaisa</option>
-                        <option value="">Paytm</option>
+                    <select required name="account_type" id="">
+                        <!-- <option value="jazzcash">JazzCash</option> -->
+                        <option selected value="easypaisa">EasyPaisa</option>
+
                     </select>
                     <label for="accNo">Enter Account Number</label>
                     <input type="number" id="accNo" name="account_no" />

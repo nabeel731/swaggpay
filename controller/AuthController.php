@@ -92,25 +92,13 @@ class AuthController extends Controller
 		
 
 		$this->helper->validateInput('POST', ['email', 'password', 'name', 'confirm_password', 'gender', 'phone', 'account_name']);
-		if (strlen($_POST['phone']) != 11) {
-			echo "<script>location.href='signup?error=INVALID_PHONE'</script>";
-			die;
-		}
+		
 
 
 		if (isset($_POST['invitee_id']) && !is_numeric($_POST['invitee_id'])) {
 			echo "<script>location.href='signup?error=INVALID_INVITEE'</script>";
 			die;
 		}
-
-
-
-		if ($data = $this->db->exist("users", 'email', $_POST['email'])) {
-			echo "<script>location.href='signup?error=EMAIL TAKEN'</script>";
-			die;
-		}
-
-
 
 
 		unset($_POST['confirm_password']);
