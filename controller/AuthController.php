@@ -7,7 +7,7 @@ class AuthController extends Controller
 	{
 		$this->helper->validateInput('POST', ['email', 'password']);
 		$_POST['password'] = sha1($_POST['password']);
-		
+
 
 		$query = "SELECT * from users where email=? AND password=? LIMIT 1";
 		$user = $this->db->getDataWithQuery($query, [$_POST['email'], $_POST['password']], 'ss');
@@ -89,10 +89,16 @@ class AuthController extends Controller
 			unset($_POST['status']);
 		}
 
-		
+
+		if ($data = $this->db->exist("users", 'email', $_POST['email'])) {
+			echo "<script>location.href='signup?error=EMAIL TAKEN'</script>";
+			die;
+		}
+
+
 
 		$this->helper->validateInput('POST', ['email', 'password', 'name', 'confirm_password', 'gender', 'phone', 'account_name']);
-		
+
 
 
 		if (isset($_POST['invitee_id']) && !is_numeric($_POST['invitee_id'])) {
