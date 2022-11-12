@@ -81,7 +81,7 @@ if ($user['paid'] == 0) {
                 } else if (res['message'] == "7 days already") {
                     swal.fire({
                         title: "Error",
-                        text: "Now Add One More Member In Your Team For Collect More Rewad",
+                        text: "After one week you have to invite one member to join your team to continue earning through videos",
                         icon: "error",
                     });
                 }
