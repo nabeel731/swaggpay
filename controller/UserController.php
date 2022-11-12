@@ -186,6 +186,8 @@ class UserController extends Controller
 		$todaydate = date("Y-m-d");
 		$rewarddata['user_id'] = $userID;
 		$rewarddata['task_id'] = $product_id;
+		$query = " Select  count(id) as total_team FROM users WHERE invitee_id=$userID";
+		$totalteam = $this->db->getDatawithQuery($query);
 		$rewarddata['udate'] = $todaydate;
 		$user = $this->db->getSingleRowIfMatch('users', 'id', $_SESSION['user_id']);
 		$query = "SELECT * FROM dailytask WHERE task_id=$product_id AND user_id=$userID AND udate='$todaydate'";
@@ -194,7 +196,7 @@ class UserController extends Controller
 			echo json_encode(['status' => 200, 'message' => 'already collect', 'data' => '']);
 			die;
 		} else if ($user['last_date'] < $todaydate) {
-			echo json_encode(['status' => 200, 'message' => '20 days already', 'data' => '']);
+			echo json_encode(['status' => 200, 'message' => '7 days already', 'data' => '']);
 			die;
 		}
 		$this->db->insertRow('dailytask', $rewarddata);

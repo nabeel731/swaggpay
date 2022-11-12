@@ -171,7 +171,7 @@ class UserController
 				$inviteeuserdata = $this->db->getSingleRowIfMatch('users', 'id', $userdata[0]['invitee_id']);
 				$amount['current_amount'] = $inviteeuserdata['current_amount'] + $this->returnPercentageAmount($settings['register_fees'], 16);
 				$this->secondmember($userdata[0]['invitee_id']);
-				$amount['last_date'] = date("Y-m-d", strtotime("$dt +10 day"));
+				$amount['last_date'] = date("Y-m-d", strtotime("$dt +7 day"));
 				$this->db->updateRow('users', $amount, 'id', $userdata[0]['invitee_id']);
 			}
 			$userapp = $this->db->updateRow('users', $approveuser, 'id', $user);

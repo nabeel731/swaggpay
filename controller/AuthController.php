@@ -91,6 +91,7 @@ class AuthController extends Controller
 
 
 		if ($data = $this->db->exist("users", 'email', $_POST['email'])) {
+
 			echo "<script>location.href='signup?error=EMAIL TAKEN'</script>";
 			die;
 		}

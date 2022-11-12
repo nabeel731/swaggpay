@@ -78,7 +78,7 @@ if ($user['paid'] == 0) {
                         text: "Your Reward Have Been Collecetd",
                         icon: "success",
                     });
-                } else if (res['message'] == "20 days already") {
+                } else if (res['message'] == "7 days already") {
                     swal.fire({
                         title: "Success",
                         text: "Now Add One More Member In Your Team For Collect More Rewad",
