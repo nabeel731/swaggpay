@@ -56,6 +56,7 @@ class AuthController extends Controller
 
 	public function register()
 	{
+
 		if (strtolower($_SERVER['REQUEST_METHOD']) != "post") {
 			if (isset($_GET['id'])) {
 				$id = $_GET['id'];
@@ -89,8 +90,15 @@ class AuthController extends Controller
 			unset($_POST['status']);
 		}
 
+		//echo $_POST['invitee_id'];die;
+		if (isset($_POST['invitee_id']) and $data = $this->db->exist("users", 'email', $_POST['email'])) {
+			$id = $this->helper->encrypt_decrypt($_POST['invitee_id'], 'encrypt');
+			$link = "invite?id=$id&error=EMAIL TAKEN";
+			echo "<script>location.href='$link'</script>";
+			die;
+		}
 
-		if ($data = $this->db->exist("users", 'email', $_POST['email'])) {
+		else if (!isset($_POST['invitee_id']) and $data = $this->db->exist("users", 'email', $_POST['email'])) {
 
 			echo "<script>location.href='signup?error=EMAIL TAKEN'</script>";
 			die;
