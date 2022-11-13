@@ -48,7 +48,7 @@
                       <tr>
                         <th>Txt Id</th>
                         <th>Action</th>
-                        <th>ScreenShot</th>
+                       
                         <th>Name</th>
                         <th>Refferal</th>
                         <th>Account</th>
@@ -84,7 +84,7 @@
                               </ul>
                             </div>
                           </td>
-                          <td><img src="../<?= $user['screenshot'] ?>" onclick="zoomIn(<?=$user['id']?>)"id="pic<?=$user['id']?>" width="200px;"></td>
+                        
 
                           <td><?= $user['name'] ?></td>
                           <td><?= $user['invitee_name'] ?></td>
@@ -106,7 +106,6 @@
                       <tr>
                         <th>Txt Id</th>
                         <th>Action</th>
-                        <th>ScreenShot</th>
                         <th>Name</th>
                         <th>Refferal</th>
                         <th>Account</th>
