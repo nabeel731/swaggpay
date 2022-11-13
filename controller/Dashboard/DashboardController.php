@@ -111,12 +111,11 @@ class DashboardController
 	public function clearextradata()
 {
 	
-	 $oneWeeklyAgo = new \DateTime('2 week ago');
+	 $oneWeeklyAgo = new \DateTime('1 week ago');
      $weeklydate=$oneWeeklyAgo->format('Y-m-d H:i:s');
-	 //echo $weeklydate;die;
 	 $query = "DELETE FROM users where created_at < '$weeklydate' and paid=0";
 	 $users = $this->db->deleteDataWIthQuery($query);
-	 $query = "DELETE  FROM reward where created_at < '$weeklydate'";
+	 $query = "DELETE  FROM dailytask where udate < '$weeklydate'";
 	 $reward = $this->db->deleteDataWIthQuery($query);
 	 $query = "DELETE FROM reset_tokens where created_at < '$weeklydate' ";
 	 $tokens = $this->db->deleteDataWIthQuery($query);
