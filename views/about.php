@@ -102,8 +102,6 @@ if ($user['paid'] == 1) {
                     <input type="number" required id="accNo" name="account_no" />
                     <label for="trxID">Enter TID#</label>
                     <input type="text" required id="trxID" name="txt_id" />
-                    <label for="trxID">Payment Screen Shot#</label>
-                    <input type="file" required id="trxID" name="image" />
                     <button type="submit">Submit</button>
                 </form>
             <?php } ?>
