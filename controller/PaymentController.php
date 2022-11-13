@@ -136,7 +136,7 @@ class PaymentController extends Controller
 			die;
 		}
 		$trxt = $_POST['txt_id'];
-		$query = "SELECT * FROM users WHERE txt_id=$trxt AND  paid=1";
+		$query = "SELECT * FROM users WHERE txt_id=$trxt AND and txtid_rejected=0";
 		$txtcheck = $this->db->getDataWithQuery($query);
 		if ($txtcheck) {
 
