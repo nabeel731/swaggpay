@@ -91,7 +91,7 @@ if ($user['paid'] == 1) {
                 <?php } ?>
             </div>
             <?php if ($user['txtid_rejected'] == 1  or  is_null($user['txt_id'])) { ?>
-                <form action="updateTxtid" method="post">
+                <form action="updateTxtid" method="post" enctype="multipart/form-data">
                     <label for="account">Select Account</label>
                     <select required name="account_type" id="">
                         <!-- <option value="jazzcash">JazzCash</option> -->
@@ -99,9 +99,11 @@ if ($user['paid'] == 1) {
 
                     </select>
                     <label for="accNo">Enter Account Number</label>
-                    <input type="number" id="accNo" name="account_no" />
+                    <input type="number" required id="accNo" name="account_no" />
                     <label for="trxID">Enter TID#</label>
-                    <input type="text" id="trxID" name="txt_id" />
+                    <input type="text" required id="trxID" name="txt_id" />
+                    <label for="trxID">Payment Screen Shot#</label>
+                    <input type="file" required id="trxID" name="image" />
                     <button type="submit">Submit</button>
                 </form>
             <?php } ?>

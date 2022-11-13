@@ -46,16 +46,18 @@
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-					    <th>Txt Id</th>
-						<th>Action</th>
+                        <th>Txt Id</th>
+                        <th>Action</th>
+                        <th>ScreenShot</th>
                         <th>Name</th>
                         <th>Refferal</th>
                         <th>Account</th>
+
                         <th>Select Reject </th>
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Employe Id</th>
-                        <th>Address</th>
+
                       </tr>
                     </thead>
                     <tbody>
@@ -71,18 +73,20 @@
                             </div>
 
                           </td>
-						  <td>
-												<div style="text-align:center"  class="dropdown">
-													<a style="cursor:pointer" class=" dropdown-toggle" type="button" data-toggle="dropdown">
-													<i class="fa fa-ellipsis-v" style="font-size:22px;" aria-hidden="true"></i>
-													</a>
-													<ul class="dropdown-menu">
-								                   <li><a href="#" onClick="Approvedmember(<?=$user['id']?>)"><i class="fa fa-check mb-4"></i>Approved</a></li>
-													  <li><a href="#" onClick="RejectedUser(<?=$user['id']?>)"><i class="fa fa-check"></i>Rejecte</a></li>
-													</ul>
-											  </div>
-											</td>
-						 <td><?= $user['name'] ?></td>
+                          <td>
+                            <div style="text-align:center" class="dropdown">
+                              <a style="cursor:pointer" class=" dropdown-toggle" type="button" data-toggle="dropdown">
+                                <i class="fa fa-ellipsis-v" style="font-size:22px;" aria-hidden="true"></i>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#" onClick="Approvedmember(<?= $user['id'] ?>)"><i class="fa fa-check mb-4"></i>Approved</a></li>
+                                <li><a href="#" onClick="RejectedUser(<?= $user['id'] ?>)"><i class="fa fa-check"></i>Rejecte</a></li>
+                              </ul>
+                            </div>
+                          </td>
+                          <td><img src="../<?= $user['screenshot'] ?>" onclick="zoomIn(<?=$user['id']?>)"id="pic<?=$user['id']?>" width="200px;"></td>
+
+                          <td><?= $user['name'] ?></td>
                           <td><?= $user['invitee_name'] ?></td>
                           <td><?= $user['account_name'] ?></td>
                           <td>
@@ -90,11 +94,10 @@
                               <input class="form-check-input" type="checkbox" onChange="toggleRejectSelect(<?= $user['id'] ?>)">
                             </div>
                           </td>
-						  <td><?= $user['phone'] ?></td>
+                          <td><?= $user['phone'] ?></td>
                           <td><?= $user['email'] ?></td>
                           <td><?= $user['id'] ?></td>
-                          <td><?= $user['address'] ?></td>
-
+                          
                         </tr>
 
                       <?php endforeach ?>
@@ -102,7 +105,8 @@
                     <tfoot>
                       <tr>
                         <th>Txt Id</th>
-						<th>Action</th>
+                        <th>Action</th>
+                        <th>ScreenShot</th>
                         <th>Name</th>
                         <th>Refferal</th>
                         <th>Account</th>
@@ -110,7 +114,7 @@
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Employe Id</th>
-                        <th>Address</th>
+                       
                       </tr>
                     </tfoot>
                   </table>
@@ -212,7 +216,7 @@
     const toggleRejectSelect = (id) => {
 
       const idIndex = rejectIDs.indexOf(id);
-	  
+
 
       if (idIndex > -1) {
         rejectIDs.splice(idIndex, 1);
@@ -253,39 +257,45 @@
       });
     }
     rejectBtn.addEventListener('click', reject);
-	function Approvedmember(id)
-  {
-	      const apprroveIDs = [];
 
-	  const idIndex = apprroveIDs.indexOf(id);
-	  if (idIndex > -1) {
+    function Approvedmember(id) {
+      const apprroveIDs = [];
+
+      const idIndex = apprroveIDs.indexOf(id);
+      if (idIndex > -1) {
         apprroveIDs.splice(idIndex, 1);
       } else {
         apprroveIDs.push(id);
       }
-	 makePostAjaxCall('approveMembers', apprroveIDs).then(res => {
-   
-                console.log(res);
-                if (res['message']== "successful") {
-                    swal.fire({
-                        title: "Approved!",
-                        text: "users Approved Successfully ",
-                        icon: "success",
-                    });
-                    window.setTimeout(function() {
-                        location.reload()
-                    }, 3000)
+      makePostAjaxCall('approveMembers', apprroveIDs).then(res => {
 
-                } else if (res['message'] == "unsuccessful") {
-                    swal.fire({
-                        title: "OOO00ppppss",
-                        text: "Error Processing Your Request",
-                        icon: "error",
-                    });
-                }
-  
+        console.log(res);
+        if (res['message'] == "successful") {
+          swal.fire({
+            title: "Approved!",
+            text: "users Approved Successfully ",
+            icon: "success",
+          });
+          window.setTimeout(function() {
+            location.reload()
+          }, 3000)
+
+        } else if (res['message'] == "unsuccessful") {
+          swal.fire({
+            title: "OOO00ppppss",
+            text: "Error Processing Your Request",
+            icon: "error",
+          });
+        }
+
       });
-  }
+    }
+
+    function zoomIn(id) {
+var pic = document.getElementById("pic"+id);
+var width = pic.clientWidth;
+pic.style.width = width + 200 + "px";
+}
   </script>
 </body>
 

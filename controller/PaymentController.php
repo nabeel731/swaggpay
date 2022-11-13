@@ -144,6 +144,8 @@ class PaymentController extends Controller
 			die;
 		}
 
+		$_POST['screenshot'] = $this->helper->uploadFile($_FILES['image'], 'uploads/profile');
+
 		$userID = $_SESSION['user_id'];
 		$user = $this->db->getSingleRowIfMatch('users', 'id', $_SESSION['user_id']);
 		if (!empty($user['txt_id'] and $user['txtid_rejected'] == 0)) {
