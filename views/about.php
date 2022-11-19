@@ -88,6 +88,7 @@ if ($user['paid'] == 1) {
 
                 <?php if ($user['txtid_rejected'] == 1) { ?>
                     <p style="color:red;font-size:20px;">We were not able verify the payment,Please Enter correct TId#</p>
+                    <p style="color:red;font-size:20px;">Please put again Tid# here And Send Your Payment Screenshot on this whatsapp 03435220867 </p>
                 <?php } ?>
             </div>
             <?php if ($user['txtid_rejected'] == 1  or  is_null($user['txt_id'])) { ?>
