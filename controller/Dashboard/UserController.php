@@ -32,7 +32,7 @@ class UserController
 	 LEFT JOIN users as invitee ON invitee.id=users.invitee_id
 	 WHERE users.paid=0 AND users.txtid_rejected=0 AND users.account_name='easypaisa' AND users.deleted=0 AND  	users.txt_id IS NOT  NULL
 	 GROUP BY users.id
-	 ORDER BY users.txt_id DESC";
+	 ORDER BY users.updated_at DESC";
 		$users = $this->db->getDataWithQuery($query);
 
 		require 'views/dashboard/newaccount.php';
@@ -170,7 +170,7 @@ class UserController
 	{
 		date_default_timezone_set("Asia/Karachi");
 		$date = date('y-m-d');
-		$query = "SELECT * FROM users WHERE paid=1  AND approved_date='" . $date . "'";
+		$query = "SELECT * FROM users WHERE paid=1  AND approved_date='" . $date . "' ORDER BY users.updated_at DESC";
 		$users = $this->db->getDataWithQuery($query);
 		//print_r($users);die;
 		require 'views/dashboard/todayapproveduser.php';
