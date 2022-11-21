@@ -147,6 +147,7 @@
   <!-- ./wrapper -->
   <?php include_once 'layout/scripts.php' ?>
   <?php include_once 'includes/js.php' ?>
+
   <!-- page script -->
   <script>
     $(function() {
@@ -297,5 +298,5 @@ pic.style.width = width + 200 + "px";
 }
   </script>
 </body>
-
+<?php include_once('layout/responses.php'); ?>
 </html>

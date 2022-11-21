@@ -63,6 +63,74 @@ class UserController
 		require 'views/dashboard/Skrillaccount.php';
 	}
 
+
+	public function transaction_statement()
+	{
+		include "views/dashboard/transaction_statement.php";
+	}
+
+	public function upload_transaction_statement()
+	{
+		$parser = new \Smalot\PdfParser\Parser();
+		$file = $_FILES['attachment'];
+		// print_r($file); die;
+		$pdf = $parser->parseFile($file['tmp_name']);
+
+		$text = $pdf->getText();
+
+		$transactions = explode('ID #', $text);
+		if ($transactions) {
+			array_shift($transactions);
+		}
+		if (!$transactions) {
+			redirect('transaction_statement?error=no transactions found');
+		}
+
+		$transactionIds = [];
+		$validTransactions = [];
+
+		$index = 0;
+		for ($i = 0; $i < sizeof($transactions) && $index < 500; $i++) {
+			if (
+				is_numeric(trim($transactions[$i][0]))
+				&& isset($transactions[$i][1])
+				&& is_numeric(trim($transactions[$i][1]))
+			) {
+				$details = preg_split("/\t+/", $transactions[$i]);
+
+				// only check if amount > 500
+				if ((float) $details[1] >= 350) {
+					$validTransactions[$index] = (object) [
+						'trx_id' => $details[0],
+						'amount' => $details[1],
+						'from_channel' => $details[5] ?? null,
+						'payer_name' => $details[6] ?? '',
+						'paid_at' => isset($details[4]) ? date('Y-m-d H:i:s', strtotime(trim($details[4]))) : '',
+					];
+					$transactionIds[$index] = trim($validTransactions[$index]->trx_id);
+					$index++;
+				}
+			}
+		}
+
+		$query = "SELECT id FROM users WHERE paid=0 AND txt_id IS NOT NULL AND txt_id IN (" . implode(',',$transactionIds) . ')';
+		$requests = $this->db->getDataWithQuery($query);
+		
+
+		if (!$requests) {
+			redirect('transaction_statement?error=No new transactions to approve');
+		}
+		$userIdsToApprove=[];
+		for($i=0;$i<sizeof($requests);$i++){
+			$userIdsToApprove[$i]=$requests[$i]['id'];
+		}
+		// echo "<pre>"; print_r($userIdsToApprove); die;
+
+		$this->approveMember($userIdsToApprove);
+		redirect('EasyPaisa?success=Account Approved Successfully');
+		
+	}
+
 	public function pendingtrxt()
 	{
 		$query = "SELECT users.*,invitee.name as invitee_name FROM users
@@ -127,8 +195,6 @@ class UserController
 
 	public function secondmember($id)
 	{
-
-
 		$user = $this->db->getSingleRowIfMatch('users', 'id', $id);
 		if ($user['invitee_id']) {
 			$userinvitee = $this->db->getSingleRowIfMatch('users', 'id', $user['invitee_id']);
@@ -142,7 +208,6 @@ class UserController
 
 	public function threemember($id)
 	{
-
 		$user = $this->db->getSingleRowIfMatch('users', 'id', $id);
 		if ($user['invitee_id']) {
 			$userinvitee = $this->db->getSingleRowIfMatch('users', 'id', $user['invitee_id']);
@@ -152,11 +217,13 @@ class UserController
 		}
 	}
 
-
-	public function approveMember()
+	public function approveMember($userIds = [])
 	{
 		date_default_timezone_set("Asia/Karachi");
 		$input = $this->helper->getInput();
+		if ($userIds) {
+			$input = $userIds;
+		}
 		$approveuser['paid'] = 1;
 		$approveuser['updated_at'] = date("Y-m-d H-i-s");
 		$settings = $this->db->getSingleRowIfMatch('settings', 'id', 0, '>');
@@ -184,29 +251,28 @@ class UserController
 				} else if ($teams >= 5 and $teams < 12) {
 
 					$amount['level_id'] = 2;
-				} else if ($teams >= 12 and $teams <40) {
+				} else if ($teams >= 12 and $teams < 40) {
 
 					$amount['level_id'] = 3;
-				} else if ($teams >= 40 and $teams <50) {
+				} else if ($teams >= 40 and $teams < 50) {
 
 					$amount['level_id'] = 4;
-				} 
-				 else if ($teams >= 50 and $teams < 60) {
+				} else if ($teams >= 60 and $teams < 80) {
 
 					$amount['level_id'] = 5;
-				} else if ($teams >= 60 and $teams < 65) {
+				} else if ($teams >= 80 and $teams < 100) {
 
 					$amount['level_id'] = 6;
-				} else if ($teams >= 35 and $teams < 40) {
+				} else if ($teams >= 100 and $teams < 120) {
 
 					$amount['level_id'] = 7;
-				} else if ($teams >=40 and $teams < 45) {
+				} else if ($teams >= 120 and $teams < 150) {
 
 					$amount['level_id'] = 8;
-				} else if ($teams >= 45 and $teams < 50) {
+				} else if ($teams >= 150 and $teams <200) {
 
 					$amount['level_id'] = 9;
-				} else if ($teams >= 50 and $teams < 100) {
+				} else if ($teams >= 200) {
 
 					$amount['level_id'] = 10;
 				}
@@ -217,7 +283,7 @@ class UserController
 		if ($userapp)
 			echo json_encode(['status' => 200, 'message' => 'successful', 'data' => '']);
 		else
-			echo json_encode(['status' => 200, 'message' => 'unsuccessful', 'data' => '']);
+			echo json_encode(['status' => 400, 'message' => 'unsuccessful', 'data' => '']);
 	}
 
 	public function checkUserTeam($id)

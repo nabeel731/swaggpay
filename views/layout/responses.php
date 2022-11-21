@@ -48,7 +48,7 @@ if (isset($_GET['error'])) {
 	else if (strtolower($error) == 'first_payment')
 		printMessage('error', 'Oooops  You Can  Withdraw Only 700 Rs');
 
-		else if (strtolower($error) == 'payment_today')
+	else if (strtolower($error) == 'payment_today')
 		printMessage('error', 'Oooops Today Withdrawal Limit Is Over');
 
 
@@ -76,6 +76,9 @@ if (isset($_GET['error'])) {
 		printMessage('Information Saved', 'Put Trxt Id To Approve Your Account', 'success');
 	elseif ($success == 'Request Received')
 		printMessage('Request Send', 'You will Received Your Amount With In Some Moments', 'success');
+
+	elseif ($success == 'Account Approved Successfully')
+		printMessage('Account Approved', 'Account Approved Successfully', 'success');
 
 	elseif ($success == 'FORGET_EMAIL_SENT')
 		printMessage('Email Sent', 'Email with reset link has been sent to you', 'success');

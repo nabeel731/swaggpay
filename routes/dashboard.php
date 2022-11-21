@@ -90,6 +90,14 @@ switch ($_GET['route']) {
 		$dashboard->getUser();
 		break;
 
+		case "transaction_statement":
+			$user->transaction_statement();
+			break;
+
+			case "upload_transaction_statement":
+				$user->upload_transaction_statement();
+				break;
+
 		case "clearextradata":
 			$dashboard->clearextradata();
 			break;

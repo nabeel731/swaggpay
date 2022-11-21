@@ -69,6 +69,9 @@ class DashboardController
 		include "views/dashboard/brands.php";
 	}
 
+
+	
+
 	public function banners()
 	{
 		$banners = $this->db->getMultipleRowsIfMatch('banners', 'active', 1);

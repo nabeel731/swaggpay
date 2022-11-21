@@ -42,6 +42,19 @@
             </a>
            
           </li>
+
+
+          <li class="nav-item has-treeview">
+            <a href="transaction_statement" class="nav-link">
+              <i class="nav-icon fas fa-user "></i>
+              <p>
+                Uploads Transaction Statement
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+           
+          </li>
+
 		  <li class="nav-item has-treeview">
             <a href="JazzCash" class="nav-link">
               <i class="nav-icon fas fa-user "></i>
