@@ -33,7 +33,7 @@ if ($user['paid'] == 0) {
           <a href="home">
             <img src="assets/img/logo/logo.png" style="width:350px;height:auto;margin-bottom:-63px;">
           </a>
-          <h2 class="heading-section" style="color:#0881a3;font-weight: bold;">Add Daily 20 Members In Your Team To Get 700 Rs </h2>
+          <h2 class="heading-section" style="color:#0881a3;font-weight: bold;">Add Daily 15 Members In Your Team To Get 700 Rs </h2>
           <h2 class="heading-section">Member:<?= $totalteam[0]['totalteam'] ?></h2>
 
         </div>
