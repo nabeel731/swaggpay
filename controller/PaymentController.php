@@ -130,6 +130,13 @@ class PaymentController extends Controller
 			unset($_POST['min_amount']);
 		}
 
+		$firsttwo=substr($_POST['txt_id'], 0, 2);
+		if($firsttwo==03)
+		{
+			echo "<script>location.href='about?error=WRONG_ID'</script>";
+			die;
+		}
+
 
 		if (strlen($_POST['txt_id']) != 11 and strlen($_POST['txt_id']) != 12) {
 			echo "<script>location.href='about?error=TXT_ID'</script>";

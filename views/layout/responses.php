@@ -51,7 +51,8 @@ if (isset($_GET['error'])) {
 	else if (strtolower($error) == 'payment_today')
 		printMessage('error', 'Oooops Today Withdrawal Limit Is Over');
 
-
+		elseif ($error == 'WRONG_ID')
+	printMessage('Oooops', 'please txr id is not phone number', 'error');
 	else if ($error == 'EMAIL_NOT_FOUND')
 		printMessage('Email Not Found', 'Your Email Is Not Found');
 	elseif ($error == 'NOT_PASSWORD_UPDATED')
@@ -64,7 +65,11 @@ if (isset($_GET['error'])) {
 		printMessage('Oooops', 'Token is Expired,You can only change password  within 2 hours of  request, Request again', 'error');
 	elseif ($error == 'TXT_ID')
 		printMessage('Oooops', 'Please Enter Correct Txt Id', 'error');
-} elseif (isset($_GET['success'])) {
+}
+
+
+
+elseif (isset($_GET['success'])) {
 	$success = $_GET['success'];
 	if (strtolower($success) == 'created')
 		printMessage('Success', 'Added Successfully!', 'success');
