@@ -45,7 +45,6 @@ if ($user['paid'] == 0) {
             <tr>
 
               <th>Name</th>
-              <th>Phone</th>
               <th>Level</th>
               <th>Action</th>
             </tr>
@@ -54,7 +53,6 @@ if ($user['paid'] == 0) {
             <?php foreach ($team as $member) { ?>
               <tr>
                 <td><?= $member['name'] ?></td>
-                <td><?= $member['phone'] ?></td>
                 <td><?= $member['level_id'] ?></td>
                 <td><a href="nextteam?id=<?= $member['id'] ?>"><button type="button" class="btn btn-primary">See His Team</button></td>
               </tr>
@@ -65,7 +63,6 @@ if ($user['paid'] == 0) {
           <tfoot>
             <tr>
               <th>Name</th>
-              <th>Phone</th>
               <th>Level</th>
               <th>Action</th>
             </tr>

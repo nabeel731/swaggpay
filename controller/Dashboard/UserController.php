@@ -245,8 +245,8 @@ class UserController
 
 			if (!empty($userdata[0]['invitee_id'])) {
 				$teams = $this->checkUserTeam($userdata[0]['invitee_id']);
+				
 				if ($teams > 1 and $teams < 5) {
-
 					$amount['level_id'] = 1;
 				} else if ($teams >= 5 and $teams < 12) {
 
@@ -254,8 +254,8 @@ class UserController
 				} else if ($teams >= 12 and $teams < 40) {
 
 					$amount['level_id'] = 3;
-				} else if ($teams >= 40 and $teams < 50) {
-
+				} else if ($teams >= 40 and $teams < 60) {
+						
 					$amount['level_id'] = 4;
 				} else if ($teams >= 60 and $teams < 80) {
 
@@ -288,8 +288,6 @@ class UserController
 
 	public function checkUserTeam($id)
 	{
-
-
 		$query = "SELECT count(invitee_id) as total_team  from users where invitee_id=$id AND paid=1";
 		$userTeam = $this->db->getDataWithQuery($query);
 		return $userTeam[0]['total_team'];
