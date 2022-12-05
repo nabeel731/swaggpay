@@ -46,7 +46,9 @@ if (isset($_GET['error'])) {
 	else if (strtolower($error) == 'second_payment')
 		printMessage('error', 'Oooops  6 Members Should be In Your Team For Withdrawal');
 	else if (strtolower($error) == 'first_payment')
-		printMessage('error', 'Oooops  You Can  Withdraw Only 700 Rs');
+		printMessage('error', 'Oooops  You Can  Withdraw Only 600 Rs');
+		else if (strtolower($error) == 'limit_payment')
+		printMessage('error', 'Oooops  You Can  Withdraw Only 600 Rs');
 
 	else if (strtolower($error) == 'payment_today')
 		printMessage('error', 'Oooops Today Withdrawal Limit Is Over');

@@ -46,6 +46,13 @@ class PaymentController extends Controller
 			echo "<script>location.href='wallet?error=PAYMENT REQUEST ERROR'</script>";
 			die;
 		}
+
+		else if ($_POST['amount'] !=600) {
+
+			echo "<script>location.href='wallet?error=LIMIT_PAYMENT'</script>";
+			die;
+		}
+		
 		$date=date('Y-m-d');
 		$query = "SELECT * FROM payments_request WHERE payment_approved=1 AND  user_id=$id and cast(updated_at as date) ='" . $date . "'";
 		$alreadypayment = $this->db->getDataWithQuery($query);
@@ -56,9 +63,6 @@ class PaymentController extends Controller
 			echo "<script>location.href='wallet?error=payment_today'</script>";
 			die;
 		}
-
-		
-
 
 		
 
@@ -74,9 +78,11 @@ class PaymentController extends Controller
 			echo "<script>location.href='wallet?error=LIMIT1'</script>";
 			die;
 		}
+
+
 		
 
-		if ($_POST['amount'] !=700 and empty($firstpaymentscheck)) {
+		if ($_POST['amount'] !=600 and empty($firstpaymentscheck)) {
 
 			echo "<script>location.href='wallet?error=First_PAYMENT'</script>";
 			die;

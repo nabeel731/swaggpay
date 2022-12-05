@@ -18,8 +18,7 @@
 						<select  class="form-control" name="account_name" id="user_id" required>
 							<option value="" disabled selected>Select Account</option>
 							<option value="easypaisa">EasyPaisa</option>
-						
-							<!--<option value="jazzcash">JazzCash</option>-->
+							<option value="jazzcash">JazzCash</option>
 							<!-- <option value="jazz cash">Jazz Cash</option> -->
                         </select>
 			   </div>
@@ -30,13 +29,13 @@
                </div>
 			   
 			<div class="form-group">
-                  <label for="recipient-name" class="control-label">Enter Account Name:</label>
-                  <input type="text" class="form-control" placeholder="Enter Name" name="name" required> 
+                  <label for="recipient-name" class="control-label">Enter Account Title:</label>
+                  <input type="text" class="form-control" placeholder="Enter Account Title" name="name" required> 
                </div>
 
 			 <div class="form-group">
                   <label for="recipient-name" class="control-label">Enter Payment:</label>
-                  <input type="text" class="form-control" placeholder="Enter Pyamrent" name="amount" required> 
+                  <input type="text" class="form-control" placeholder="Enter Pyamrent" value="600" name="amount" required> 
                </div>
 			   
          </div>
