@@ -18,7 +18,7 @@
 						<select  class="form-control" name="account_name" id="user_id" required>
 							<option value="" disabled selected>Select Account</option>
 							<option value="easypaisa">EasyPaisa</option>
-							<option value="jazzcash">JazzCash</option>
+							<!-- <option value="jazzcash">JazzCash</option> -->
 							<!-- <option value="jazz cash">Jazz Cash</option> -->
                         </select>
 			   </div>
