@@ -116,7 +116,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3><?=$totalreceived[0]['totalreceived']*360?></h3>
+                <h3><?=$totalreceived[0]['totalreceived']*380?></h3>
 
                 <p>Total Recieved</p>
               </div>
@@ -144,7 +144,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3><?=$dailyreceived[0]['dailyreceived']*360?></h3>
+                <h3><?=$dailyreceived[0]['dailyreceived']*400?></h3>
 
                 <p>Daily Recieved</p>
               </div>
