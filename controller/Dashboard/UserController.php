@@ -386,7 +386,7 @@ class UserController
 	{
 
 		$this->helper->validateInput('post', ['userId']);
-		$minutes2Behind = date('Y-m-d H-i-s', time() - 120);
+		$minutes2Behind = date('Y-m-d H-i-s', time() - 300);
 		$query="UPDATE users SET txtid_rejected=1 WHERE paid=0 AND txt_id IS NOT NULL AND txtid_rejected=0 AND updated_at < '$minutes2Behind'";
 		$user = $this->db->runQuery($query);
 		
