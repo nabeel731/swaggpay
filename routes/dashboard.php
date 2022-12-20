@@ -86,6 +86,11 @@ switch ($_GET['route']) {
 		$user->deleteUser();
 		break;
 
+		case "Allrejects":
+			$user->Allrejects();
+			break;
+		
+
 	case "getUser":
 		$dashboard->getUser();
 		break;

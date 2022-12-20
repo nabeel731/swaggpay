@@ -25,7 +25,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><button type="button" id="rejectBtn" class="btn btn-primary">Rejects User</button></li>
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><button type="button" onClick="Allrejects()" class="btn btn-primary">Reject Remaining Requests</button></li>
                 <li class="breadcrumb-item active">Category</li>
               </ol>
             </div>
@@ -290,6 +290,40 @@
 
       });
     }
+
+
+    function Allrejects(){
+		
+    if (confirm("Are you sure?")) {
+           $.ajax({
+         type: "POST",
+         url: 'Allrejects',
+         data: {userId:1},
+         success: function(data){
+           console.log(data);
+           if(data==1)
+           { 
+              swal.fire({
+                                  title: "Rejects!",
+                                  text: "Remaining Requests Rejected Successfully",
+                                  icon: "success",
+                                });
+              window.setTimeout(function(){location.reload()},3000)
+                
+           }
+           
+           else if(data=="0")
+          {
+            swal.fire({
+                                  title: "OOO00ppppss",
+                                  text: "Error Processing Your Request",
+                                  icon: "error",
+                                });
+           }
+         }
+         });	
+      }
+}
 
     function zoomIn(id) {
 var pic = document.getElementById("pic"+id);

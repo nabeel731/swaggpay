@@ -113,22 +113,21 @@ class UserController
 			}
 		}
 
-		$query = "SELECT id FROM users WHERE paid=0 AND txt_id IS NOT NULL AND txt_id IN (" . implode(',',$transactionIds) . ')';
+		$query = "SELECT id FROM users WHERE paid=0 AND txt_id IS NOT NULL AND txt_id IN (" . implode(',', $transactionIds) . ')';
 		$requests = $this->db->getDataWithQuery($query);
-		
+
 
 		if (!$requests) {
 			redirect('transaction_statement?error=No new transactions to approve');
 		}
-		$userIdsToApprove=[];
-		for($i=0;$i<sizeof($requests);$i++){
-			$userIdsToApprove[$i]=$requests[$i]['id'];
+		$userIdsToApprove = [];
+		for ($i = 0; $i < sizeof($requests); $i++) {
+			$userIdsToApprove[$i] = $requests[$i]['id'];
 		}
 		// echo "<pre>"; print_r($userIdsToApprove); die;
 
 		$this->approveMember($userIdsToApprove);
 		redirect('EasyPaisa?success=Account Approved Successfully');
-		
 	}
 
 	public function pendingtrxt()
@@ -168,7 +167,6 @@ class UserController
 
 	public function todayapproved()
 	{
-		date_default_timezone_set("Asia/Karachi");
 		$date = date('y-m-d');
 		$query = "SELECT * FROM users WHERE paid=1  AND approved_date='" . $date . "' ORDER BY users.updated_at DESC";
 		$users = $this->db->getDataWithQuery($query);
@@ -199,7 +197,7 @@ class UserController
 		if ($user['invitee_id']) {
 			$userinvitee = $this->db->getSingleRowIfMatch('users', 'id', $user['invitee_id']);
 			$settings = $this->db->getSingleRowIfMatch('settings', 'id', 0, '>');
-			$amount['current_amount'] = $userinvitee['current_amount'] + $this->returnPercentageAmount($settings['register_fees'],2);
+			$amount['current_amount'] = $userinvitee['current_amount'] + $this->returnPercentageAmount($settings['register_fees'], 2);
 			$this->db->updateRow('users', $amount, 'id', $userinvitee['id']);
 			$this->threemember($userinvitee['id']);
 		}
@@ -212,7 +210,7 @@ class UserController
 		if ($user['invitee_id']) {
 			$userinvitee = $this->db->getSingleRowIfMatch('users', 'id', $user['invitee_id']);
 			$settings = $this->db->getSingleRowIfMatch('settings', 'id', 0, '>');
-			$amount['current_amount'] = $userinvitee['current_amount'] + $this->returnPercentageAmount($settings['register_fees'],1);
+			$amount['current_amount'] = $userinvitee['current_amount'] + $this->returnPercentageAmount($settings['register_fees'], 1);
 			$this->db->updateRow('users', $amount, 'id', $userinvitee['id']);
 		}
 	}
@@ -229,7 +227,7 @@ class UserController
 		$settings = $this->db->getSingleRowIfMatch('settings', 'id', 0, '>');
 		$approveuser['approved_date'] = date('y-m-d');
 		$dt = date("Y-m-d");
-		$approveuser['last_date'] = date("Y-m-d", strtotime("$dt +10 day"));
+		$approveuser['last_date'] = date("Y-m-d", strtotime("$dt +7 day"));
 
 		foreach ($input as $user) {
 			$query = "SELECT * FROM users WHERE id=$user AND paid=0";
@@ -238,14 +236,19 @@ class UserController
 				$inviteeuserdata = $this->db->getSingleRowIfMatch('users', 'id', $userdata[0]['invitee_id']);
 				$amount['current_amount'] = $inviteeuserdata['current_amount'] + $this->returnPercentageAmount($settings['register_fees'], 16);
 				$this->secondmember($userdata[0]['invitee_id']);
-				$amount['last_date'] = date("Y-m-d", strtotime("$dt +7 day"));
+				if ($inviteeuserdata['level_id'] < 3) {
+					$amount['last_date'] = date("Y-m-d", strtotime("$dt +7 day"));
+				} else if ($inviteeuserdata['level_id'] > 2) {
+					$amount['last_date'] = date("Y-m-d", strtotime("$dt +5 day"));
+				}
+
 				$this->db->updateRow('users', $amount, 'id', $userdata[0]['invitee_id']);
 			}
 			$userapp = $this->db->updateRow('users', $approveuser, 'id', $user);
 
 			if (!empty($userdata[0]['invitee_id'])) {
 				$teams = $this->checkUserTeam($userdata[0]['invitee_id']);
-				
+
 				if ($teams > 1 and $teams < 5) {
 					$amount['level_id'] = 1;
 				} else if ($teams >= 5 and $teams < 12) {
@@ -255,7 +258,7 @@ class UserController
 
 					$amount['level_id'] = 3;
 				} else if ($teams >= 40 and $teams < 60) {
-						
+
 					$amount['level_id'] = 4;
 				} else if ($teams >= 60 and $teams < 80) {
 
@@ -269,7 +272,7 @@ class UserController
 				} else if ($teams >= 120 and $teams < 150) {
 
 					$amount['level_id'] = 8;
-				} else if ($teams >= 150 and $teams <200) {
+				} else if ($teams >= 150 and $teams < 200) {
 
 					$amount['level_id'] = 9;
 				} else if ($teams >= 200) {
@@ -378,6 +381,22 @@ class UserController
 		} else
 			echo "0";
 	}
+
+	public function Allrejects()
+	{
+
+		$this->helper->validateInput('post', ['userId']);
+		$minutes2Behind = date('Y-m-d H-i-s', time() - 120);
+		$query="UPDATE users SET txtid_rejected=1 WHERE paid=0 AND txt_id IS NOT NULL AND txtid_rejected=0 AND updated_at < '$minutes2Behind'";
+		$user = $this->db->runQuery($query);
+		
+		if ($user) {
+			echo "1";
+		} else
+			echo "0";
+	}
+
+
 
 
 
