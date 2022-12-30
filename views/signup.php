@@ -16,7 +16,7 @@
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 70px;
+    bottom: 20px;
     right: 45px;
 
 }
