@@ -8,6 +8,7 @@ if ($user['paid'] == 1) {
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +19,24 @@ if ($user['paid'] == 1) {
     <title>SwaggPay</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link rel="stylesheet" href="assets/css/custom/verification.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/admin/plugins/fontawesome-free/css/all.min.css">
 </head>
+
+<style>
+          .whats-app {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 70px;
+    right: 45px;
+
+}
+
+.my-float {
+    margin-top: 16px;
+}
+        </style>
 
 <body>
     <main>
@@ -36,10 +54,10 @@ if ($user['paid'] == 1) {
                 <?php if (is_null($user['txt_id']) and $user['account_name'] == "Skrill") { ?>
                     <h1 class="intro-title"><?= $settings['skrill_description'] ?></h1>
                 <?php } ?>
-                <?php if (!is_null($user['txt_id']) and $user['paid'] == 0 and $user['txtid_rejected'] == 0) { ?>
+                <?php if (!is_null($user['txt_id']) and $user['paid'] == 0 ) { ?>
                 <?php } ?>
 
-                <?php if (!is_null($user['txt_id']) and $user['paid'] == 0 and $user['txtid_rejected'] == 0) { ?>
+                <?php if ($user['paid'] == 0 and !is_null($user['txt_id']) and $user['txtid_rejected'] == 0) { ?>
                     <p style="text-align:center">
                         Please Wait Your Account Will be Approved After Review Your Information And Payment
                     <p>
@@ -49,34 +67,17 @@ if ($user['paid'] == 1) {
                         It May Take Seven minutes to Two Hours
                     </p>
                     </h4>
-                <?php } else { ?>
-                    <p class="intro-desc" style="margin-bottom:19px;"><?php echo $settings['description'] ?>
-                    </p>
+                    <?php } ?>
+                   
 
-                    <?php if ($user['account_name'] == "easypaisa" && $settings['easypaisa_active'] == 1) { ?>
+                    <?php if ($user['account_name'] == "easypaisa" && $settings['easypaisa_active'] == 1 and is_null($user['txt_id'])) { ?>
+                        <p class="intro-desc" style="margin-bottom:19px;"><?php echo $settings['description'] ?>
+                    </p>
                         <h3 class="intro-title"><?= $user['account_name'] ?> Account</h3>
                         <h3 class="intro-title">Account No:<?= $settings['easypiasa_no'] ?></h3>
                         <h3 class="intro-title" style="font-size:50;">Account Name:<?= $settings['easypiasa_title'] ?></h3>
                     <?php } ?>
-                    <?php if ($user['account_name'] == "easypaisa" && $settings['easypaisa_active'] == 0) { ?>
-                        <h3 class="intro-title" style="font-size:30;">Account No:<?= $settings['bankaccount_no'] ?></h3>
-                        <h3 class="intro-title" style="font-size:30;">Account Name:<?= $settings['bank_name'] ?></h3>
-                        <h3 class="intro-title" style="font-size:30px;">Account Title:<?= $settings['bank_title'] ?></h3>
-                    <?php } ?>
-                    <?php if ($user['account_name'] == "Skrill" && $settings['Skrill_active'] == 1) { ?>
-                        <h3 class="intro-title">Account No:<?= $settings['skrillaccount_no'] ?></h3>
-                        <h3 class="intro-title" style="font-size:50;">Account Name:<?= $settings['skrill_title'] ?></h3>
-                    <?php } ?>
-                    <?php if ($user['account_name'] == "Skrill" && $settings['easypaisa_active'] == 0) { ?>
-                        <h3 class="intro-title" style="font-size:30;">Account No:<?= $settings['bankaccount_no'] ?></h3>
-                        <h3 class="intro-title" style="font-size:30;">Account Name:<?= $settings['bank_name'] ?></h3>
-                        <h3 class="intro-title" style="font-size:30px;">Account Title:<?= $settings['bank_title'] ?></h3>
-                    <?php } ?>
-                    <?php if ($user['account_name'] == "jazzcash" && $settings['jazzcash_active'] == 0) { ?>
-                        <h3 class="intro-title" style="font-size:30px;">Account No:<?= $settings['bankaccount_no'] ?></h3>
-                        <h3 class="intro-title" style="font-size:30px;">Account Name:<?= $settings['bank_name'] ?></h3>
-                        <h3 class="intro-title" style="font-size:30px;">Account Title:<?= $settings['bank_title'] ?></h3>
-                    <?php } ?>
+                
 
                     <?php if ($user['account_name'] == "jazzcash" && $settings['jazzcash_active'] == 1) {
                     ?>
@@ -84,14 +85,13 @@ if ($user['paid'] == 1) {
                         <h3 class="intro-title">Account No:<?= $settings['jazzacount_no'] ?></h3>
                         <h3 class="intro-title">Account Name:<?= $settings['jazzcash_title'] ?></h3>
                     <?php } ?>
-                <?php } ?>
+                
 
                 <?php if ($user['txtid_rejected'] == 1) { ?>
                     <p style="color:red;font-size:20px;">We were not able verify the payment,Please Enter correct TId#</p>
                     <p style="color:red;font-size:20px;">Please put again Tid# here And Send Your Payment Screenshot on this whatsapp 03404419153 </p>
                 <?php } ?>
             </div>
-            <?php if ($user['txtid_rejected'] == 1  or  is_null($user['txt_id'])) { ?>
                 <form action="updateTxtid" method="post" enctype="multipart/form-data">
                     <label for="account">Select Account</label>
                     <select required name="account_type" id="">
@@ -105,9 +105,12 @@ if ($user['paid'] == 1) {
                     <input type="text" required id="trxID" name="txt_id" />
                     <button type="submit">Submit</button>
                 </form>
-            <?php } ?>
+           
         </div>
     </main>
+    <a  class="whats-app" href="whatsapp://send?abid=03404419153&text=Hello%2C%20World!">
+      <i class="fab fa-whatsapp my-float" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
+        </a>
 </body>
 
 </html>

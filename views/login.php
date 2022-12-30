@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/custom/login.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="stylesheet" href="assets/admin/plugins/fontawesome-free/css/all.min.css">
     <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -14,25 +16,20 @@
           crossorigin="anonymous"
           referrerpolicy="no-referrer"
         />
-        <!-- <style>
-          main{
-            padding-block: 0rem;
-          }
-          input{
-            outline: none;
-          }
-          main form input:focus span{
-            background-color: red;
-          }
-          main form{
-            min-width: auto;
-          }
-          @media screen and (max-width: 480px){
-            main{
-              align-items: flex-start !important;
-            }
-          }
-        </style> -->
+        <style>
+          .whats-app {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 70px;
+    right: 45px;
+
+}
+
+.my-float {
+    margin-top: 16px;
+}
+        </style>
   </head>
 <body>
     <main>
@@ -69,7 +66,11 @@
         </div>
         <button type="submit">Login</button>
       </form>
+      <a  class="whats-app" href="whatsapp://send?abid=03404419153&text=Hello%2C%20World!">
+      <i class="fab fa-whatsapp my-float" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
+        </a>
     </main>
+  
 
 <?php include_once 'layout/responses.php'?>
 <?php include_once 'layout/scripts.php'?>

@@ -8,7 +8,23 @@
   <title>SwaggPay</title>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <link rel="stylesheet" href="assets/css/custom/signUp.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/admin/plugins/fontawesome-free/css/all.min.css">
 </head>
+<style>
+          .whats-app {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 70px;
+    right: 45px;
+
+}
+
+.my-float {
+    margin-top: 16px;
+}
+        </style>
 
 <body>
   <main style="padding-block: 0rem;">
@@ -49,6 +65,9 @@
       <button type="submit">Sign Up</button>
     </form>
   </main>
+  <a  class="whats-app" href="whatsapp://send?abid=03404419153&text=Hello%2C%20World!">
+      <i class="fab fa-whatsapp my-float" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
+        </a>
 </body>
 
 </html>

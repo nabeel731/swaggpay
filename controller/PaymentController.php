@@ -160,10 +160,6 @@ class PaymentController extends Controller
 	
 		$userID = $_SESSION['user_id'];
 		$user = $this->db->getSingleRowIfMatch('users', 'id', $_SESSION['user_id']);
-		if (!empty($user['txt_id'] and $user['txtid_rejected'] == 0)) {
-			echo "<script>location.href='about?error=ALREADY TAKEN'</script>";
-			die;
-		}
 		$_POST['txtid_rejected'] = 0;
 		$user = $this->db->updateRow('users', $_POST, 'id', $userID);
 		if ($user) {

@@ -23,6 +23,7 @@ if ($user['paid'] == 0) {
 <html lang="en">
 <?php include_once 'layout/head.php' ?>
 
+
 <body data-spy="scroll" data-target=".navbar" data-offset="70" style="background-color:white;">
     <div class="row justify-content-center">
         <div class="col-md-12 text-center">
@@ -113,6 +114,30 @@ if ($user['paid'] == 0) {
                                 </div>
                                 <div class="mt-1">
                                     <a href="logout" class="btn btn-sm btn-primary" style="width:100px;margin-bottom:30px;">Logout</a>
+
+                                </div> <!-- bottom-wrap.// -->
+                            </div>
+
+                            <div class="col-6 d-flex flex-column justify-content-center" style="text-align:center;">
+                                <div class=" profile">
+                                    <a href="whatsapp://send?abid=03404419153&text=Hello%2C%20World!">
+                                        <i class="fab fa-whatsapp" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="mt-1">
+                                    <a href="whatsapp://send?abid=03404419153&text=Hello%2C%20World!" class="btn btn-sm btn-primary" style="width:100px;margin-bottom:30px;">Contact Us</a>
+
+                                </div> <!-- bottom-wrap.// -->
+                            </div>
+
+                            <div class="col-6 d-flex flex-column justify-content-center" style="text-align:center;">
+                                <div class=" profile">
+                                    <a href="home">
+                                        <i class="fa fa-info-circle" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="mt-1">
+                                    <a href="home" class="btn btn-sm btn-primary" style="width:100px;margin-bottom:30px;">About Us</a>
 
                                 </div> <!-- bottom-wrap.// -->
                             </div>
