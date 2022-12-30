@@ -66,7 +66,7 @@
         </div>
         <button type="submit">Login</button>
       </form>
-      <a  class="whats-app" href="whatsapp://send?abid=03404419153&text=Hello%2C%20World!">
+      <a  class="whats-app" href="whatsapp://send?text=Hello World!&phone=+9198********1">
       <i class="fab fa-whatsapp my-float" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
         </a>
     </main>
