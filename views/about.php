@@ -108,7 +108,7 @@ if ($user['paid'] == 1) {
            
         </div>
     </main>
-    <a  class="whats-app" href="whatsapp://send?abid=03404419153&text=Hello%2C%20World!">
+    <a  class="whats-app" href="https://wa.me/+923404419153">
       <i class="fab fa-whatsapp my-float" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
         </a>
 </body>
