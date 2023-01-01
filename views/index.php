@@ -120,12 +120,12 @@ if ($user['paid'] == 0) {
 
                             <div class="col-6 d-flex flex-column justify-content-center" style="text-align:center;">
                                 <div class=" profile">
-                                    <a href="https://wa.me/+923404419153">
+                                    <a href="https://wa.me/+923426020867">
                                         <i class="fab fa-whatsapp" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="mt-1">
-                                    <a href="https://wa.me/+923404419153" class="btn btn-sm btn-primary" style="width:100px;margin-bottom:30px;">Contact Us</a>
+                                    <a href="https://wa.me/+923426020867" class="btn btn-sm btn-primary" style="width:100px;margin-bottom:30px;">Contact Us</a>
 
                                 </div> <!-- bottom-wrap.// -->
                             </div>

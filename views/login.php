@@ -66,7 +66,7 @@
         </div>
         <button type="submit">Login</button>
       </form>
-      <a  class="whats-app" href="https://wa.me/+923404419153">
+      <a  class="whats-app" href="https://wa.me/+923426020867">
       <i class="fab fa-whatsapp my-float" style="font-size:80px;color:#007da1" aria-hidden="true"></i>
         </a>
     </main>
